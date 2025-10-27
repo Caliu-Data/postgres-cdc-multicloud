@@ -1,0 +1,31 @@
+
+# ==========================================
+# FILE: terraform/aws/terraform.tfvars.example
+# ==========================================
+# Copy this file to terraform.tfvars and fill in your values
+
+aws_region       = "us-east-1"
+app_name         = "cdc-pipeline"
+s3_bucket_name   = "cdc-landing-bucket-123"  # Must be globally unique
+
+# Docker image
+image_tag = "latest"
+
+# PostgreSQL Configuration
+pg_host       = "your-postgres-instance.rds.amazonaws.com"
+pg_port       = "5432"
+pg_database   = "warehouse"
+pg_user       = "cdcuser"
+pg_password   = "YourSecurePassword123!"  # Use Secrets Manager in production
+pg_publication = "cdc_pub"
+pg_slot       = "cdc_slot"
+
+# Tables to capture
+table_include = "warehouse.stock_item,warehouse.stock_movement"
+
+# Tags
+tags = {
+  Environment = "Production"
+  Project     = "CDC-Pipeline"
+  ManagedBy   = "Terraform"
+}

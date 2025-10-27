@@ -1,0 +1,35 @@
+
+# ==========================================
+# FILE: terraform/gcp/terraform.tfvars.example
+# ==========================================
+# Copy this file to terraform.tfvars and fill in your values
+
+project_id        = "your-gcp-project-id"
+region            = "us-central1"
+app_name          = "cdc-pipeline"
+gcs_bucket_name   = "cdc-landing-bucket-unique-123"  # Must be globally unique
+
+# Docker image
+image_tag = "latest"
+
+# Data retention
+data_retention_days = 90
+
+# PostgreSQL Configuration
+pg_host       = "your-postgres-instance.googleapis.com"
+pg_port       = "5432"
+pg_database   = "warehouse"
+pg_user       = "cdcuser"
+pg_password   = "YourSecurePassword123!"  # Use Secret Manager in production
+pg_publication = "cdc_pub"
+pg_slot       = "cdc_slot"
+
+# Tables to capture
+table_include = "warehouse.stock_item,warehouse.stock_movement"
+
+# Labels
+labels = {
+  environment = "production"
+  project     = "cdc-pipeline"
+  managed_by  = "terraform"
+}

@@ -1,0 +1,32 @@
+# ==========================================
+# FILE: terraform/azure/terraform.tfvars.example
+# ==========================================
+# Copy this file to terraform.tfvars and fill in your values
+
+resource_group_name   = "rg-cdc-pipeline-prod"
+location              = "eastus"
+app_name              = "cdc-pipeline"
+acr_name              = "cdcpipelineacr123"  # Must be globally unique
+storage_account_name  = "cdclandingsa123"     # Must be globally unique, lowercase
+
+# Docker image
+image_tag = "latest"
+
+# PostgreSQL Configuration
+pg_host       = "your-postgres-server.postgres.database.azure.com"
+pg_port       = "5432"
+pg_database   = "warehouse"
+pg_user       = "cdcuser"
+pg_password   = "YourSecurePassword123!"  # Use Azure Key Vault in production
+pg_publication = "cdc_pub"
+pg_slot       = "cdc_slot"
+
+# Tables to capture (comma-separated, schema.table format)
+table_include = "warehouse.stock_item,warehouse.stock_movement"
+
+# Tags
+tags = {
+  Environment = "Production"
+  Project     = "CDC-Pipeline"
+  ManagedBy   = "Terraform"
+}
