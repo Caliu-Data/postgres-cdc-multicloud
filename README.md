@@ -28,7 +28,7 @@ A production-ready, vendor-neutral CDC pipeline that captures PostgreSQL changes
 ## 🎯 What This Solves
 
 ✅ **Real-time CDC** from PostgreSQL using logical replication  
-✅ **Cost-optimized** infrastructure (~$5-10/month on Azure)  
+✅ **Cost-optimized** infrastructure  
 ✅ **Multi-cloud portable** - Same code runs on Azure, AWS, or GCP  
 ✅ **Infrastructure as Code** - Full Terraform automation  
 ✅ **Production-ready** - Monitoring, health checks, and auto-restart
@@ -38,7 +38,6 @@ A production-ready, vendor-neutral CDC pipeline that captures PostgreSQL changes
 - Order fulfillment monitoring
 - Customer 360 views
 - Audit logging
-- Data lake synchronization
 
 ---
 
